@@ -60,18 +60,46 @@
 
 .inputgroup {
     display: flex;
-    /*//flex-direction: column;*/
+    /*flex-direction: column;*/
     margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .inputgroup label {
-    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: none;
+    font-size: 16px;
     margin: 5px 5px;
 }
 
 .inputgroup input {
+    width: calc(100% - 10px - 1em);
     padding: 5px;
     border-radius: 5px;
-    border: none;
     font-size: 16px;
+    border: 1px solid #005599;
 }
+
+.inputError{
+    background-color: red;
+}
+.firstMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #005599;
+}
+
+.incorrectNumber{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: red;
+}
+

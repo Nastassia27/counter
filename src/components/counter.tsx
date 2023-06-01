@@ -8,41 +8,21 @@ import MainWindow from "./MainWindow";
 export function Counter() {
     let [maxValue, setMaxValue] = useState<number>(() => {
         const storedValue = localStorage.getItem('Max value');
-        return storedValue ? JSON.parse(storedValue) : 1;
+        return storedValue ? +JSON.parse(storedValue) : 1;
     });
     let [minValue, setMinValue] = useState<number>(() => {
         const storedValue = localStorage.getItem('Min value');
-        return storedValue ? JSON.parse(storedValue) : 0;
+        return storedValue ? +JSON.parse(storedValue) : 0;
     })
     let [counter, setCounter] = useState<number>(() => {
         const storedValue = localStorage.getItem('Counter');
+        console.log(typeof storedValue)
+
         return storedValue ? JSON.parse(storedValue) : 0;
     })
     let [buttonClicked, setButtonClicked] = useState<boolean>(false)
     let [previousMinValue, setPreviousMinValue] = useState(0);
     let [previousMaxValue, setPreviousMaxValue] = useState(0);
-
-   /* useEffect(() => {
-        let maxValueAsString = localStorage.getItem('Max value')
-        let minValueAsString = localStorage.getItem('Min value')
-        let newCounter = localStorage.getItem('Counter')
-debugger
-        if (maxValueAsString) {
-            let newMaxValue = JSON.parse(maxValueAsString)
-            setMaxValue(newMaxValue)
-        }
-        debugger
-        if (minValueAsString) {
-            let newMinValue = JSON.parse(minValueAsString)
-            setMinValue(newMinValue)
-        }
-        debugger
-        if (newCounter) {
-            let newNewCounter = JSON.parse(newCounter)
-            setCounter(newNewCounter)
-        }
-    }, []) //без зависимостей, значит будет отрабатывать каждый раз при перезагрузке*/
-
 
     useEffect(() => {
         localStorage.setItem('Min value', JSON.stringify(minValue))
